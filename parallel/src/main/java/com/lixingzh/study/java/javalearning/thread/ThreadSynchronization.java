@@ -1,4 +1,4 @@
-package com.lixingzh.study.java.javalearning.timer;
+package com.lixingzh.study.java.javalearning.thread;
 
 public class ThreadSynchronization {
 
