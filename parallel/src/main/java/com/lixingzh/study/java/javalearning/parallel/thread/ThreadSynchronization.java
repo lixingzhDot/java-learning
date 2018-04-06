@@ -1,4 +1,4 @@
-package com.lixingzh.study.java.javalearning.thread;
+package com.lixingzh.study.java.javalearning.parallel.thread;
 
 public class ThreadSynchronization {
 
