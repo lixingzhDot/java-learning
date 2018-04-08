@@ -1,10 +1,9 @@
-package com.lixingzh.study.java.javalearning.parallel.condition;
+package com.lixingzh.study.java.javalearning.parallel.communication;
 
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
-public class ConditionTest {
+/**
+ * 子线程循环10次，接着主线程循环100，接着回到子线程循环10次，接着再回到主线程循环100， 如此循环50次。
+ */
+public class ThreadCommunication {
 	public static void main(String[] args) {
 		final Business business = new Business();
 		new Thread(new Runnable() {
@@ -22,12 +21,10 @@ public class ConditionTest {
 	
 	static class Business {
 		private boolean bShouldSub = true;
-		Lock lock = new ReentrantLock();
-		Condition condition = lock.newCondition();
 		public synchronized void sub(int i) {
 			while(!bShouldSub) {
 				try {
-					condition.await();
+					this.wait();
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -37,13 +34,13 @@ public class ConditionTest {
 				System.out.println("sub thread seq of " + j + ", loop of " + i);
 			}
 			bShouldSub = false;
-			condition.signal();
+			this.notify();
 		}
 		
 		public synchronized void main(int i) {
 			while(bShouldSub) {
 				try {
-					condition.await();
+					this.wait();
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -53,7 +50,7 @@ public class ConditionTest {
 				System.out.println("main thread seq of " + j + ", loop of " + i);
 			}
 			bShouldSub = true;
-			condition.signal();
+			this.notify();
 		}
 	}
 }
