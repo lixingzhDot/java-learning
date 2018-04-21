@@ -8,7 +8,6 @@ public class ForTest {
 			j = j++;
 			j2 = ++j2;
 		}
-		
 		System.out.println(j + " , " + j2);
 	}
 }
