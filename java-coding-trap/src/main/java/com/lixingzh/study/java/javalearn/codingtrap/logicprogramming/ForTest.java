@@ -1,4 +1,4 @@
-package com.lixingzh.study.java.javalearn.codingtrap;
+package com.lixingzh.study.java.javalearn.codingtrap.logicprogramming;
 
 public class ForTest {
 	public static void main(String[] args) {

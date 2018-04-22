@@ -1,4 +1,4 @@
-package com.lixingzh.study.java.javalearn.codingtrap;
+package com.lixingzh.study.java.javalearn.codingtrap.logicprogramming;
 
 public class UnicodeTest {
 	public static void main(String[] args) {

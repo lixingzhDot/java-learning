@@ -95,7 +95,6 @@ public class Executortest {
 						}
 						
 					});
-					
 					try {
 						String a = (String)future1.get();
 						System.out.println(Thread.currentThread().getName() + ": " + a);
